@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Ti ❤️</title>
+<title>Para ti ❤️</title>
 
 <style>
 body {
@@ -13,130 +13,31 @@ body {
     color: white;
     font-family: 'Helvetica Neue', sans-serif;
     text-align: center;
-    overflow-x: hidden;
 }
 
 h1 {
-    margin-top: 120px;
-    font-weight: 300;
-    letter-spacing: 2px;
+    margin-top: 100px;
+    font-size: 40px;
 }
 
-p {
-    font-weight: 200;
-    opacity: 0.85;
-}
-
-button {
-    margin-top: 30px;
-    padding: 12px 28px;
-    background: transparent;
-    border: 1px solid #ff4d6d;
-    color: #ff4d6d;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #ff4d6d;
-    color: white;
-}
-
-.video-container {
-    display: none;
+video {
     margin-top: 40px;
-}
-
-iframe {
+    width: 80%;
+    max-width: 700px;
     border-radius: 15px;
-}
-
-.letter {
-    margin: 60px 30px;
-    font-size: 17px;
-    line-height: 1.8;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.9;
-}
-
-/* Corazones flotando */
-.heart {
-    position: fixed;
-    bottom: -10px;
-    font-size: 18px;
-    color: #ff4d6d;
-    animation: float 8s linear infinite;
-    opacity: 0.5;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0) translateX(0);
-        opacity: 0.6;
-    }
-    100% {
-        transform: translateY(-100vh) translateX(40px);
-        opacity: 0;
-    }
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
 </style>
 
-<script>
-function mostrarVideo() {
-    const contenedor = document.getElementById("video");
-    const video = document.getElementById("miVideo");
-
-    contenedor.style.display = "block";
-    video.play();
-}
-
-function crearCorazon() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 5) + "s";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 8000);
-}
-
-setInterval(crearCorazon, 500);
-</script>
-
 </head>
-
 <body>
 
-<h1>Para Ti 💌</h1>
-<p>Hay algo especial que quiero que veas...</p>
+<h1>Para ti ❤️</h1>
 
-<button onclick="mostrarVideo()">Descúbrelo</button>
-
-<div class="video-container" id="video">
-    <video id="miVideo" width="320" style="border-radius:15px;">
-        <source src="video.mp4" type="video/mp4">
-        Tu navegador no soporta video.
-    </video>
-</div>
-</div>
-
-<div class="letter">
-<p>
-Quiza lo nuestro nunca tuvo nombre, pero para mi siempre estuvo muy claro, cada momento contigo, cada uno de esos dias, se quedo conmigo.<br><br>
-
-En todo este tiempo nunca pense en alejarme ni en tomar distancia.<br><br>
-
-Te convertiste en alguien muy especial para mi, alguien a quien quiero cerca. Algunas cosas no cambian, pero cada sentimiento mio hacia ti siempre fue lo mas real y lo seguira siendo
-Siempre te apoyare, mientras pueda hacerlo y este en mis posibilidades siempre estare para ti.
-</p>
-</div>
+<video controls>
+    <source src="video.mp4" type="video/mp4">
+    Tu navegador no soporta video.
+</video>
 
 </body>
 </html>
