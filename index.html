@@ -6,26 +6,56 @@
 <title>Para ti ❤️</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
     background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
-    color: white;
     font-family: 'Helvetica Neue', sans-serif;
-    text-align: center;
+    color:white;
+    text-align:center;
 }
 
-h1 {
-    margin-top: 100px;
-    font-size: 40px;
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-video {
-    margin-top: 40px;
-    width: 80%;
-    max-width: 700px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+button:hover{
+    transform:scale(1.1);
+}
+
+.carta{
+    width:85%;
+    max-width:500px;
+    max-height:70vh;
+    overflow-y:auto;
+    background:white;
+    color:#333;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 0 25px rgba(255,255,255,0.3);
+    position:absolute;
+    opacity:0;
+    transform:scale(0.7);
+    transition:0.6s;
+    text-align:left;
+    line-height:1.6;
+}
+
+.carta.activa{
+    opacity:1;
+    transform:scale(1);
 }
 </style>
 
@@ -34,10 +64,39 @@ video {
 
 <h1>Para ti ❤️</h1>
 
-<video controls>
-    <source src="video.mp4" type="video/mp4">
-    Tu navegador no soporta video.
-</video>
+<button onclick="abrirCarta()">Descúbrelo</button>
+
+<div class="carta" id="carta">
+    <h2 style="text-align:center;">💌</h2>
+
+    <p>
+        Quizá lo nuestro nunca tuvo nombre, pero para mí siempre estuvo muy claro,
+        cada momento contigo, cada uno de esos días, se quedó conmigo.
+    </p>
+
+    <p>
+        En todo este tiempo nunca pensé en alejarme ni en tomar distancia.
+        Te convertiste en alguien muy especial para mí, alguien a quien quiero cerca.
+    </p>
+
+    <p>
+        Algunas cosas no cambian, pero cada sentimiento mío hacia ti siempre fue lo más real
+        y lo seguirá siendo. Mientras siga siendo posible estaré para ti en cada momento.
+        Eres de las pocas personas a las que les puedo contar lo poco que me pasa
+        y sé que si algo sucede serás la primera persona con la que yo vaya a acudir.
+    </p>
+
+    <p>
+        Te aprecio demasiado y espero poder seguir con esto,
+        aún así sin saber cómo manejarlo o llamarlo.
+    </p>
+</div>
+
+<script>
+function abrirCarta(){
+    document.getElementById("carta").classList.add("activa");
+}
+</script>
 
 </body>
 </html>
