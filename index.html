@@ -87,7 +87,11 @@ iframe {
 
 <script>
 function mostrarVideo() {
-    document.getElementById("video").style.display = "block";
+    const contenedor = document.getElementById("video");
+    const video = document.getElementById("miVideo");
+
+    contenedor.style.display = "block";
+    video.play();
 }
 
 function crearCorazon() {
@@ -116,9 +120,11 @@ setInterval(crearCorazon, 500);
 <button onclick="mostrarVideo()">Descúbrelo</button>
 
 <div class="video-container" id="video">
-    <iframe width="320" height="200"
-    src="https://www.youtube.com/embed/2HzcTCUqAEw"
-    allowfullscreen></iframe>
+    <video id="miVideo" width="320" style="border-radius:15px;">
+        <source src="video.mp4" type="video/mp4">
+        Tu navegador no soporta video.
+    </video>
+</div>
 </div>
 
 <div class="letter">
