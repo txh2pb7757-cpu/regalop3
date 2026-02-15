@@ -14,10 +14,11 @@ body{
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
-    font-family: 'Helvetica Neue', sans-serif;
+    background:#111;
+    font-family:Arial, sans-serif;
     color:white;
     text-align:center;
+    overflow:hidden;
 }
 
 button{
@@ -36,39 +37,50 @@ button:hover{
 }
 
 .carta{
+    display:none;
     width:85%;
     max-width:500px;
-    max-height:70vh;
+    max-height:65vh;
     overflow-y:auto;
     background:white;
     color:#333;
     border-radius:15px;
-    padding:25px;
-    box-shadow:0 0 25px rgba(255,255,255,0.3);
-    position:absolute;
-    opacity:0;
-    transform:scale(0.7);
-    transition:0.6s;
+    padding:20px;
+    margin-top:20px;
     text-align:left;
     line-height:1.6;
+    position:relative;
+    z-index:2;
 }
 
-.carta.activa{
-    opacity:1;
-    transform:scale(1);
+/* Corazones */
+.heart{
+    position:absolute;
+    color:#ff4d6d;
+    font-size:20px;
+    animation:flotar 4s linear infinite;
+}
+
+@keyframes flotar{
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-800px) scale(1.5);
+        opacity:0;
+    }
 }
 </style>
-
 </head>
+
 <body>
 
 <h1>Para ti ❤️</h1>
 
-<button onclick="abrirCarta()">Descúbrelo</button>
+<button id="boton">Descúbrelo</button>
 
 <div class="carta" id="carta">
-    <h2 style="text-align:center;">💌</h2>
-
     <p>
         Quizá lo nuestro nunca tuvo nombre, pero para mí siempre estuvo muy claro,
         cada momento contigo, cada uno de esos días, se quedó conmigo.
@@ -93,9 +105,28 @@ button:hover{
 </div>
 
 <script>
-function abrirCarta(){
-    document.getElementById("carta").classList.add("activa");
-}
+const boton = document.getElementById("boton");
+const carta = document.getElementById("carta");
+
+boton.addEventListener("click", function(){
+    carta.style.display = "block";
+
+    // Crear corazones
+    for(let i = 0; i < 25; i++){
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+});
 </script>
 
 </body>
